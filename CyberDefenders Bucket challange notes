@@ -1,5 +1,11 @@
-3.m am uitat la json-uri si am vzut ca timpul cel mai mic era cel de la primul json iar la evnet name aveam AssumedRole ,atentie un json poate avea mai mult de un event time pentru ca poate avea mai multe eventuri
-4. am cautat prin fisiere pana am vazut event time -ul corespunator,apoi am cautat source ip addr si am vazut adresa cu 34
-5. adresa cu 104 era cealata adresa din loguri
-6.cred ca in jsonul 7 am vazut listBuckets am cautat si in restul si nu erau
-7.In jsoul2 am vazut ca aveam create log stream
+After reviewing the JSON files, I determined that the earliest timestamp appeared in the first JSON file, and the associated event name was AssumedRole.
+
+A single JSON file can contain multiple event times, since it may include multiple events.
+
+I then searched the files for the matching event time. From there, I checked the source IP address and identified the IP beginning with 34.
+
+The IP beginning with 104 was the second address present in the logs.
+
+In JSON 7, I identified the ListBuckets action. I searched the remaining files and confirmed that this event did not appear elsewhere.
+
+In JSON 2, I identified the CreateLogStream event.
