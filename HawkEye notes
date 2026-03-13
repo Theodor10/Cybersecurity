@@ -1,26 +1,52 @@
-go -> last packet can also see first or go to a specific
-view ->change time format -> view time utc
-scazi timpu de la last capture - timpu de la first
-statistics->endpoints->macul cu cele 4003 packte
-statistics->endpoints->aplly macul cu 4003 ca filtru->uitate la ethernet->soruce
-cauta head quarteru la source -ul gasit inainte
-endpoints->ipv4 alea cu 10. dar fara ultima ca e de broadcast (also itit arata ca e de boadcast daca dai edit preferrences->name resolution
-pe a packets la connection
-pe a packets la dns server
-am cautat pachetu 204
-pe apackets la connections
-apackets in acelasi loc
-aici trebuie sa ne uitam la http si vedem ca victima (10.4.10.132) a facut un request la organizatie (proforma),in reqestu de get la User-agnt vedem mai multe softuri folosite de victima printre care si Windows nt 6.1)
-tot la get,sus avem resursa descarcata
-mergem la file->export oject->export http (frumos ar fi sa fim pe linux cand facem asta0) fisierul il incarcam pe virus total si o sa vedem raspunsurile pt intrebarea asta si pt urmatoarea
-pe virus total la details (nu am in fata dar oricum e una din doua)
-in getu de la 13 vedem si server name
-ne uitam la http req facut de vitcima catre bot.whats my ip address
-m am uitat pe connection pe harta si am vaxut ca s doar 2 tari
-whois macwinlogistics
-dam filltru smtp-> follow tcp stream pachet de la victima catre macwinlogisitcs-> sus de tot apare server name
-ne uitam la from
-ne uitam la linia cu rosu (urmatoarea de dupa AUTH login ...)->luam informatia si o bagam intr un decoder de base 64
-luam corpul mailului si dam decode64 -> Reborn v9
-tot aici,sub url : bank of america  vedem user name si parola
-trebe bagat queri u asta : smtp.req.command == "EHLO"si ne uitam la time sa vedem cat de des se exfiltreaza date
+- Go to the last packet. You can also inspect the first packet or jump to a specific one.
+- In View -> Time Display Format, switch the time format to UTC.
+- Subtract the time of the first capture from the time of the last capture.
+
+- Go to Statistics -> Endpoints and identify the MAC address with 4003 packets.
+- Apply that MAC as a filter and inspect Ethernet -> Source.
+
+- Search for the headquarters location of the source identified earlier.
+
+- In Endpoints, inspect the IPv4 entries starting with 10., excluding the last one because it is the broadcast address.
+- You can also confirm the broadcast entry through Edit -> Preferences -> Name Resolution.
+
+- Review the packets associated with the connection.
+- Review the packets associated with the DNS server.
+
+- I checked packet 204.
+- Then I reviewed the packets tied to the connection.
+- The relevant packets are in the same place.
+
+- At this stage, inspect HTTP traffic. We can see that the victim (10.4.10.132) made a request to the organization (proforma).
+- In the GET request, the User-Agent header reveals several software components used by the victim, including Windows NT 6.1.
+- The same GET request also shows the downloaded resource near the top.
+
+- Go to File -> Export Objects -> HTTP.
+- Ideally, do this from Linux.
+- Upload the exported file to VirusTotal. This should provide the answer for this question and the next one.
+- On VirusTotal, check the Details tab.
+
+- In the GET request from packet 13, the server name is also visible.
+
+- Review the HTTP request made by the victim to bot.whatismyipaddress.
+
+- I checked the connection map and noticed that only two countries appear.
+
+- Run a WHOIS lookup on macwinlogistics.
+
+- Apply an SMTP filter and follow the TCP stream for the packet sent from the victim to macwinlogistics.
+- The server name appears at the top of the stream.
+
+- Inspect the From field.
+- Look at the red line immediately after AUTH LOGIN.
+- Copy that value and decode it with a Base64 decoder.
+
+- Decode the email body from Base64: Reborn v9.
+
+- In the same area, under the URL "Bank of America", the username and password are visible.
+
+- Use this query:
+  smtp.req.command == "EHLO"
+
+- Then inspect the timestamps to determine how frequently data is being exfiltrated.
+
